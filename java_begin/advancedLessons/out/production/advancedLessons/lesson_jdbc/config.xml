@@ -1,0 +1,6 @@
+<root>
+    <DRIVER>org.postgresql.Driver</DRIVER>>
+    <DB_URL>jdbc:postgresql://localhost:5432/postgres</DB_URL>
+    <USER>postgres</USER>
+    <PASS>0000</PASS>
+</root>

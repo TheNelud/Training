@@ -1,0 +1,4 @@
+2022-05-03 15:07:08 ERROR [main]: java.lang.NullPointerException: Cannot invoke "java.net.URL.toURI()" because the return value of "java.lang.ClassLoader.getSystemResource(String)" is null
+2022-05-03 15:07:58 INFO  [main]: File URI have been gotten
+2022-05-03 15:07:58 INFO  [main]: Byte array from file have been gotton
+2022-05-03 15:07:58 INFO  [main]: Messege from file have been gotton
