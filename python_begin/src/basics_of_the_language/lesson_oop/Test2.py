@@ -12,7 +12,7 @@ p1.sayHallo()
 
 class Student(Person):
 	def __init__ (self, name , age, averageGrade):
-		super().__init__(name, age) # = Person.__init__(self, name, age) 
+		super().__init__(name, age) # <==> Person.__init__(self, name, age) 
 		self.averageGrade = averageGrade 
 
 		print("Created studet constructor")
@@ -21,6 +21,7 @@ class Student(Person):
 		print(f"{self.name} studies")
 
 	def sayHallo(self):
+		super().sayHallo()
 		print(f"Student with name: {self.name} says hello!")
 
 
@@ -35,5 +36,18 @@ t1 = Teacher("Kate", 21)
 
 s1.sayHallo()
 t1.sayHallo()
-
 s1.study()
+
+
+def introduce(person):
+	print("Now, a person will say hello")
+	person.sayHallo
+
+people_array=[Student("Tom", 18, 3.5),
+			  Teacher("Katy", 35),
+			  Student("Bob", 26, 4.6)]
+
+
+for person in people_array:
+	introduce(person)
+
