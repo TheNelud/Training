@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <UA_HOST>opc.tcp://127.0.0.1:4050</UA_HOST>
+    <UA_SERVER_NAME>Server Nelud prod</UA_SERVER_NAME>
+    <UA_ROOT_NAMESPACE>My_root_space</UA_ROOT_NAMESPACE>
+    
+</configuration>
