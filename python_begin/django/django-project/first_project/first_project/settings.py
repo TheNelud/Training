@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# Чтобы включить приложение в наш проект, нам нужно добавить ссылку на его класс конфигурации в параметре INSTALLED_APPS
 
 INSTALLED_APPS = [
     'visual_data.apps.VisualDataConfig',
