@@ -1,0 +1,85 @@
+id -int
+title - Varchar
+content - text
+create_at - DAtetime
+update_at - DAtetime
+photo - Image
+is_published - voolean
+
+
+python3 mysite/manage.py makemigrations
+
+python3 mysite/manage.py sqlmigrate news 0001
+
+#_______________________________________________________________
+(venv) sh-5.1$ python3 manage.py shell
+
+>>> from news.models import News
+>>> News(title='Новости 1', content='Контент новости 1')
+<News: News object (None)>
+>>> news1 = _
+>>> news1
+<News: News object (None)>
+>>> news1.save()
+>>> from django.db import connection
+>>> connection.queries
+[{'sql': 'INSERT INTO "news_news" ("title", "content", "create_at", "update_at", "photo", "is_published") SELECT \'Новости 1\', \'Контент новости 1\', \'2022-06-03 10:29:36.476700\', \'2022-06-03 10:29:36.476832\', \'\', 1 RETURNING "news_news"."id"', 'time': '0.006'}]
+>>> 
+
+
+>>> news3 = News()
+>>> news3.title = 'Новость 3'
+>>> news3.content = 'Контент новости 3'
+>>> news3.save()\
+... 
+... 
+KeyboardInterrupt
+>>> news3.save()
+>>> news4 = News.objects.create(title='Новости 4', content='Контент новости 4')
+>>> news4.pk
+
+>>> News.objects.create(title='Новости 5', content='Контент новости 5')
+<News: News object (5)>
+>>> 
+>>> News.objects.all()
+<QuerySet [<News: News object (1)>, <News: News object (2)>, <News: News object (3)>, <News: News object (4)>, <News: News object (5)>]>
+>>> for item in news:
+...     print(item.title, item.is_published)
+... 
+Новости 1 True
+Новости 2 True
+Новость 3 True
+Новости 4 True
+Новости 5 True
+>>> News.objects.create(title='Новости 5', content='Контент новости 6')
+<News: Новости 5>
+>>> News.objects.filter(title='Новости 5')
+<QuerySet [<News: Новости 5>, <News: Новости 5>]>
+>>> News.objects.filter(title='Новости 6')
+<QuerySet []>
+
+>>> News.objects.get(pk=5)
+>>> News.objects.get(pk=3)
+<News: Новость 3>
+>>> news3 = _
+>>> news3.title = "Новости 3"
+>>> news3.save()
+
+
+>>> News.objects.get(pk=6)
+<News: Новости 5>
+>>> news6 = _
+>>> news6.delete()
+(1, {'news.News': 1})
+
+
+>>> News.objects.all()
+<QuerySet [<News: Новости 1>, <News: Новости 2>, <News: Новости 3>, <News: Новости 4>, <News: Новости 5>]>
+>>> News.objects.order_by().all()
+<QuerySet [<News: Новости 1>, <News: Новости 2>, <News: Новости 3>, <News: Новости 4>, <News: Новости 5>]>
+News.objects.order_by('-title')
+<QuerySet [<News: Новости 5>, <News: Новости 4>, <News: Новости 3>, <News: Новости 2>, <News: Новости 1>]>
+>>>News.objects.exclude(title='Новости 5')
+<QuerySet [<News: Новости 1>, <News: Новости 2>, <News: Новости 3>, <News: Новости 4>]>
+ 
+
